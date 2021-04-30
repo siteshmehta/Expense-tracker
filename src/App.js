@@ -5,6 +5,7 @@ import IncomeExpense from "./components/IncomeExpense";
 import Header from "./components/Header";
 import TransactionList from "./components/TransactionList";
 import GlobalProvider from "./context/GlobalState";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <IncomeExpense/>
           <TransactionList/>
           <AddTransaction/>
+          <Footer/>
         </div>
         <div className="col-md-3"></div>
       </div>

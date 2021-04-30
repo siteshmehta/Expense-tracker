@@ -7,7 +7,7 @@ export default function Balance() {
   var amounts = transactions.map((transaction) => transaction["amount"]);
 
   var total = amounts.reduce((acc, value) => {
-    return (acc += value);
+    return acc += value;
   },0).toFixed(2);
   
   
@@ -16,7 +16,7 @@ export default function Balance() {
     <div className="row shadow-sm">
       <div className="col-12">
         <p>YOUR BALANCE</p>
-        <p style={{ fontSize: "20px" }}>{total}</p>
+        <p style={{ fontSize: "20px" }}>&#8377; {total}</p>
       </div>
     </div>
   );

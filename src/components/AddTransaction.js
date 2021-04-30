@@ -24,7 +24,8 @@ export default function AddTransaction() {
     };
     
     addTransaction(newTransaction);
-
+    setText("");
+    setamount(0);
   }
 
 
@@ -44,7 +45,7 @@ export default function AddTransaction() {
           <span className="text-secondary">
             (Negative- expenses, positive - income )
           </span>
-          <input type="text" className="form-control shadow-none" value={amount} onChange={(e)=>setamount(e.target.value)} />
+          <input type="number" className="form-control shadow-none" value={amount} onChange={(e)=>setamount(e.target.value)} />
           <div className="d-grid mt-4">
             <button
               type="submit"
