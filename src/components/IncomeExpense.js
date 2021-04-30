@@ -24,7 +24,7 @@ export default function IncomeExpense() {
     .toFixed(2);
 
   return (
-    <div className="row shadow-sm text-center p-3 rounded">
+    <div className="row shadow-sm text-center p-3 border-top border-bottom border-secondary border-1">
       <div className="col-6">
         <div className="row">
           <div className="col-12">INCOME</div>
