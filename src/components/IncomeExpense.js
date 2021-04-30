@@ -28,13 +28,13 @@ export default function IncomeExpense() {
       <div className="col-6">
         <div className="row">
           <div className="col-12">INCOME</div>
-          <div className="col-12 text-success">{income}</div>
+          <div className="col-12" style={{color:"#00AFB9"}}>{income}</div>
         </div>
       </div>
       <div className="col-6 border-start border-dark">
         <div className="row">
           <div className="col-12">EXPENSES</div>
-          <div className="col-12 text-success">{expenses}</div>
+          <div className="col-12" style={{color:"#F07167"}}>{expenses}</div>
         </div>
       </div>
     </div>

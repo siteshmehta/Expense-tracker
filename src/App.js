@@ -9,12 +9,12 @@ import GlobalProvider from "./context/GlobalState";
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid user-select-none">
       <GlobalProvider>
 
       <div className="row">
         <div className="col-md-3 "></div>
-        <div className="col-md-6">
+        <div className="col-md-6 main_app border border-5  rounded shadow p-5">
           <Header />
           <Balance />
           <IncomeExpense/>
