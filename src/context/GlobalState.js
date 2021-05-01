@@ -3,7 +3,7 @@ import AddReducer from './AddReducer';
 
 
 const initialState = {
-  transactions: [],
+  transactions: []
 };
 
 
@@ -12,13 +12,17 @@ export const GlobalContext = createContext(initialState);
 
 //Provider component
 export default function GlobalProvider  ({ children }) {
-  const [state, dispatch] = useReducer(AddReducer, initialState , () => {
-    const localData = localStorage.getItem("transactions")
-    return localStorage ? JSON.parse(localData) : [];
-  } );
+  
+  const [state, dispatch] = useReducer(AddReducer, initialState, () =>{
+    if(!localStorage.getItem("transactions")) return initialState;
+    return JSON.parse(localStorage.getItem("transactions"))
+  });
 
+  
   useEffect( function(){
-    localStorage.setItem('transactions',JSON.stringify(state))
+    if(state){
+      localStorage.setItem('transactions',JSON.stringify(state))
+    }
   },[state])
 
 
@@ -37,6 +41,7 @@ export default function GlobalProvider  ({ children }) {
     })
   }
 
+  
   return (
     <GlobalContext.Provider value={{ transactions: state.transactions,deleteTransaction,addTransaction }}>
       {children}
