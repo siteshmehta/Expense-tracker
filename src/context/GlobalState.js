@@ -1,49 +1,52 @@
-import React, { createContext, useReducer,useEffect } from "react";
-import AddReducer from './AddReducer';
-
+import React, { createContext, useReducer, useEffect } from "react";
+import AddReducer from "./AddReducer";
 
 const initialState = {
-  transactions: []
+  transactions: [],
 };
-
 
 //create context
 export const GlobalContext = createContext(initialState);
 
 //Provider component
-export default function GlobalProvider  ({ children }) {
-  
-  const [state, dispatch] = useReducer(AddReducer, initialState, () =>{
-    if(!localStorage.getItem("transactions")) return initialState;
-    return JSON.parse(localStorage.getItem("transactions"))
+export default function GlobalProvider({ children }) {
+  const [state, dispatch] = useReducer(AddReducer, initialState, () => {
+    if (!localStorage.getItem("transactions")) return initialState;
+    return JSON.parse(localStorage.getItem("transactions"));
   });
 
-  
-  useEffect( function(){
-    if(state){
-      localStorage.setItem('transactions',JSON.stringify(state))
-    }
-  },[state])
-
+  useEffect(
+    function () {
+      if (state) {
+        localStorage.setItem("transactions", JSON.stringify(state));
+      }
+    },
+    [state]
+  );
 
   //actions
-  function deleteTransaction(id){
+  function deleteTransaction(id) {
     dispatch({
-      type : 'DELETE_TRANSACTION',
-      payload:id
-    })
+      type: "DELETE_TRANSACTION",
+      payload: id,
+    });
   }
 
-  function addTransaction(transaction){
+  function addTransaction(transaction) {
     dispatch({
-      type : 'ADD_TRANSACTION',
-      payload:transaction
-    })
+      type: "ADD_TRANSACTION",
+      payload: transaction,
+    });
   }
 
-  
   return (
-    <GlobalContext.Provider value={{ transactions: state.transactions,deleteTransaction,addTransaction }}>
+    <GlobalContext.Provider
+      value={{
+        transactions: state.transactions,
+        deleteTransaction,
+        addTransaction,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

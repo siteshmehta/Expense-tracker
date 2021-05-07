@@ -15,7 +15,7 @@ function App() {
 
       <div className="row">
         <div className="col-md-3 "></div>
-        <div className="col-md-6 main_app border border-5  rounded shadow p-5">
+        <div className="col-sm-12 col-md-6 main_app border border-5  rounded shadow p-md-5 p-3">
           <Header />
           <Balance />
           <IncomeExpense/>
